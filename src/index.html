@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forum Diskusi</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body style="height: 1000vh">
+    <!-- Nav -->
+    <section>
+      <header class="text-gray-400 bg-gray-900 body-font hidden lg:block">
+        <div class="container mx-auto flex flex-wrap p-8 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <span class="ml-3 text-xl">Forum Diskusi</span>
+          </a>
+
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center cursor-pointer">
+            <a class="mr-5 hover:text-white">Home</a>
+            <a class="mr-5 hover:text-white">Diskusi</a>
+            <a class="mr-5 hover:text-white m">About</a>
+          </nav>
+
+          <a href="" class="inline-flex items-center border-0 py-2 px-6 focus:outline-none rounded text-base mt-4 md:mt-0 text-white/50 hover:text-white">Register</a>
+
+          <a href="" class="inline-flex items-center bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-blue-800 rounded text-base mt-4 md:mt-0 text-white">Login</a>
+        </div>
+      </header>
+
+      <!-- ini mobile -->
+      <header x-data="{ open: false }" class="text-gray-400 bg-gray-900 lg:hidden">
+        <div class="flex justify-between p-5">
+          <a href="#" class="text-white text-xl font-bold">Forum Diskusi</a>
+
+          <div x-on:click="open = !open" class="w-9 cursor-pointer">
+            <img src="../public/icon/menu-burger.png" alt="" />
+          </div>
+        </div>
+
+        <nav x-show="open" @click.outside="open = false" class="absolute right-0 bg-gray-700 w-full max-w-[200px] p-3 border-3 border-slate-300 mt-4 me-10">
+          <ul>
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">Home</a>
+            </li>
+
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">Diskusi</a>
+            </li>
+
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </section>
+    <!-- Nav END -->
+
+    <!-- Main -->
+
+    <section>
+      <main class="mt-32">
+        <div class="container mx-auto p-3">
+          <div class="w-full lg:flex lg:justify-between">
+            <div class="">
+              <span class="text-base font-semibold text-teal-400">Discussion</span>
+              <h1 class="text-3xl lg:text-4xl text-slate-900 font-bold">
+                Forum Jelajah Diskusi Ruang <br />
+                Kreatif untuk Berbagi dan Mengeksplorasi
+              </h1>
+            </div>
+
+            <div class="mt-10 lg:mt-16">
+              <button class="px-4 py-2 border-2 bg-blue-800 hover:bg-blue-600 text-white text-lg rounded">Mulai Diskusi</button>
+            </div>
+          </div>
+
+          <div class="mt-16 w-full max-w-sm lg:max-w-md">
+            <label class="relative block">
+              <span class="sr-only">Search</span>
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <img src="../public/icon/search.png" alt="searchs" class="block relative w-5" />
+              </span>
+              <input
+                class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border-2 border-slate-400 rounded-md py-2 pl-16 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                placeholder="Search for anything..."
+                type="search"
+                name="search" />
+            </label>
+          </div>
+        </div>
+
+        <div class="container mx-auto mt-20 p-3">
+          <div class="grid grid-cols-12 gap-4 place-content-center">
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 mx-auto">
+              <a href="#">
+                <div class="w-full shadow-2xl max-w-md rounded-2xl bg-slate-800 text-white p-5">
+                  <h1 class="text-2xl font-bold">Kolaborasi Kreatif</h1>
+                  <p class="text-justify my-5">" Tempat Berkumpulnya Pecinta Seni untuk Berbagi Ide, Proyek, dan Inspirasi Seni Terbaru. Mari Jelajahi Dunia Seni Bersama-sama! "</p>
+
+                  <div class="flex">
+                    <img src="../public/avatar.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-full mt-2 lg:mt-0" />
+
+                    <div class="ml-7 mt-2">
+                      <h5 class="text-xl">Mahesa</h5>
+                      <span class="text-base text-slate-300/30">Student</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 mx-auto">
+              <a href="#">
+                <div class="w-full shadow-2xl max-w-md rounded-2xl bg-slate-800 text-white p-5">
+                  <h1 class="text-2xl font-bold">Kolaborasi Kreatif</h1>
+                  <p class="text-justify my-5">" Tempat Berkumpulnya Pecinta Seni untuk Berbagi Ide, Proyek, dan Inspirasi Seni Terbaru. Mari Jelajahi Dunia Seni Bersama-sama! "</p>
+
+                  <div class="flex">
+                    <img src="../public/avatar.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-full mt-2 lg:mt-0" />
+
+                    <div class="ml-7 mt-2">
+                      <h5 class="text-xl">Mahesa</h5>
+                      <span class="text-base text-slate-300/30">Student</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-span-12 md:col-span-6 lg:col-span-4 mx-auto">
+              <a href="#">
+                <div class="w-full shadow-2xl max-w-md rounded-2xl bg-slate-800 text-white p-5">
+                  <h1 class="text-2xl font-bold">Kolaborasi Kreatif</h1>
+                  <p class="text-justify my-5">" Tempat Berkumpulnya Pecinta Seni untuk Berbagi Ide, Proyek, dan Inspirasi Seni Terbaru. Mari Jelajahi Dunia Seni Bersama-sama! "</p>
+
+                  <div class="flex">
+                    <img src="../public/avatar.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-full mt-2 lg:mt-0" />
+
+                    <div class="ml-7 mt-2">
+                      <h5 class="text-xl">Mahesa</h5>
+                      <span class="text-base text-slate-300/30">Student</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Main END -->
+  </body>
+</html>
