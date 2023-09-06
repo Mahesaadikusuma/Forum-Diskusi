@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Diskusi</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body style="height: 1000vh">
+    <!-- Nav -->
+    <section>
+      <header class="text-gray-400 bg-gray-900 body-font hidden lg:block">
+        <div class="container mx-auto flex flex-wrap p-8 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <span class="ml-3 text-xl">Forum Diskusi</span>
+          </a>
+
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center cursor-pointer">
+            <a class="mr-5 hover:text-white">Home</a>
+            <a class="mr-5 hover:text-white">Diskusi</a>
+            <a class="mr-5 hover:text-white m">About</a>
+          </nav>
+
+          <a href="" class="inline-flex items-center border-0 py-2 px-6 focus:outline-none rounded text-base mt-4 md:mt-0 text-white/50 hover:text-white">Register</a>
+
+          <a href="" class="inline-flex items-center bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-blue-800 rounded text-base mt-4 md:mt-0 text-white">Login</a>
+        </div>
+      </header>
+
+      <!-- ini mobile -->
+      <header x-data="{ open: false }" class="text-gray-400 bg-gray-900 lg:hidden">
+        <div class="flex justify-between p-5">
+          <a href="#" class="text-white text-xl font-bold">Forum Diskusi</a>
+
+          <div x-on:click="open = !open" class="w-9 cursor-pointer">
+            <img src="../public/icon/menu-burger.png" alt="" />
+          </div>
+        </div>
+
+        <!-- @click.outside="open = false" -->
+        <nav x-transition.duration.500ms x-show="open" @click.away="open = false" class="absolute right-0 bg-gray-700 w-full max-w-[200px] p-3 border-3 border-slate-300 mt-4 me-10">
+          <ul>
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">Home</a>
+            </li>
+
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">Diskusi</a>
+            </li>
+
+            <li class="group py-2">
+              <a href="#" class="text-gray-300 mx-6 group-hover:text-gray-100">About</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </section>
+    <!-- Nav END -->
+
+    <!-- Main -->
+
+    <section>
+      <main class="mt-32">
+        <div class="container mx-auto p-3">
+          <div class="w-full flex flex-col justify-center items-center lg:flex-row">
+            <div class="block lg:flex cursor-pointer" onclick="window.location.href='index.html'">
+              <img src="../public/icon/arrow-left.svg" alt="arrow-left" class="lg:mt-[2px] lg:mr-5 lg:mb-0 mb-5" />
+              <h1 class="text-2xl sm:text-3xl lg:text-5xl text-slate-900 font-bold">
+                Kembali ke Pusat Forum
+                <span class="text-blue-700">Discussion</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <div x-data="{ open: false }" class="container mx-auto my-32 p-3">
+          <div class="w-full p-5 lg:p-8 bg-gray-300">
+            <div class="flex">
+              <img src="../public/avatar-detail.svg" alt="avatar user" class="w-16 h-w-16 lg:w-36 lg:h-36 rounded-full mt-2 lg:mt-0" />
+
+              <div class="ml-7 lg:mt-5">
+                <h5 class="text-xl md:text-3xl lg:text-5xl font-bold text-gray-900">Kolaborasi Kreatif</h5>
+                <a href="#" class="">
+                  <span class="text-base lg:text-lg block mt-5 text-black/30">@Mahesa</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-12">
+              <p class="text-xl md:text-2xl lg:text-3xl text-justify font-normal">
+                " Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae dolor perferendis ipsam esse corporis voluptatibus facere repellat cupiditate earum, vitae fuga, error inventore illo ab non deleniti suscipit! Reprehenderit,
+                minima! "
+              </p>
+
+              <span class="block text-base mt-20 lg:text-xl text-black/30">Dibuat pada 22 May 2023</span>
+            </div>
+          </div>
+
+          <div class="flex justify-end mt-10">
+            <button @click="open = !open" class="bg-blue-700 text-white px-4 py-2 lg:px-6 lg:py-3 text-base lg:text-2xl font-medium">Berikan Tanggapan</button>
+          </div>
+
+          <!-- FORM -->
+          <div x-show="open" x-transition.duration.1000ms class="mx-auto my-20">
+            <form @submit.prevent="..." action="#" method="post" enctype="multipart/form-data">
+              <div class="w-full mx-auto max-w-md lg:max-w-3xl">
+                <label class="block">
+                  <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-xl font-medium text-slate-700"> Berikan Komentar Anda </span>
+
+                  <textarea id="editor"></textarea>
+                  <!-- <input
+                    type="email"
+                    name="email"
+                    class="mt-1 px-3 py-2 bg-white border-4 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                    placeholder="you@example.com" /> -->
+                </label>
+              </div>
+
+              <div class="w-full mx-auto max-w-md lg:max-w-3xl mt-5">
+                <label for="" class="block">
+                  <span class="block">Image</span>
+                  <input
+                    type="file"
+                    name="image"
+                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" />
+                </label>
+              </div>
+
+              <div class="w-full mx-auto max-w-md lg:max-w-3xl my-10">
+                <button type="submit" class="bg-blue-800 px-4 text-white py-2">Submit</button>
+
+                <button @click="open = false" class="bg-slate-600 px-4 py-2 text-white text-dark">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- FORM END -->
+
+          <!-- comment -->
+          <div class="w-full">
+            <div class="">
+              <h5 class="text-xl lg:text-3xl font-bold text-gray-900 my-10">3 Comment</h5>
+            </div>
+
+            <!-- comment -->
+            <div class="flex my-5">
+              <img src="../public/avatar-detail.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-28 lg:h-28 rounded-full mt-2 lg:mt-0" />
+
+              <div class="ml-7 mt-2">
+                <h5 class="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">Mahesa</h5>
+                <p class="text-justify text-base md:text-lg lg:text-2xl text-gray-800 mt-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora fugit, quasi in assumenda adipisci mollitia qui, maiores accusantium libero consectetur. Illo veritatis fugit officia magni quasi totam,
+                  necessitatibus natus.
+                </p>
+
+                <span class="text-base lg:text-lg block mt-10 font-medium text-black/30">Di Buat 1 jam yang lalu</span>
+              </div>
+            </div>
+
+            <div class="flex my-5">
+              <img src="../public/avatar-detail.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-28 lg:h-28 rounded-full mt-2 lg:mt-0" />
+
+              <div class="ml-7 mt-2">
+                <h5 class="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">Mahesa</h5>
+                <p class="text-justify text-base md:text-lg lg:text-2xl text-gray-800 mt-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora fugit, quasi in assumenda adipisci mollitia qui, maiores accusantium libero consectetur. Illo veritatis fugit officia magni quasi totam,
+                  necessitatibus natus.
+                </p>
+
+                <span class="text-base lg:text-lg block mt-10 font-medium text-black/30">Di Buat 1 jam yang lalu</span>
+              </div>
+            </div>
+
+            <div class="flex my-5">
+              <img src="../public/avatar-detail.svg" alt="avatar user" class="w-[50px] h-[50px] lg:w-28 lg:h-28 rounded-full mt-2 lg:mt-0" />
+
+              <div class="ml-7 mt-2">
+                <h5 class="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">Mahesa</h5>
+                <p class="text-justify text-base md:text-lg lg:text-2xl text-gray-800 mt-3">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora fugit, quasi in assumenda adipisci mollitia qui, maiores accusantium libero consectetur. Illo veritatis fugit officia magni quasi totam,
+                  necessitatibus natus.
+                </p>
+
+                <span class="text-base lg:text-lg block mt-10 font-medium text-black/30">Di Buat 1 jam yang lalu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Main END -->
+
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace("editor");
+    </script>
+  </body>
+</html>
