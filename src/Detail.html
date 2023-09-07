@@ -64,8 +64,8 @@
       <main class="mt-32">
         <div class="container mx-auto p-3">
           <div class="w-full flex flex-col justify-center items-center lg:flex-row">
-            <div class="block lg:flex cursor-pointer" onclick="window.location.href='index.html'">
-              <img src="../public/icon/arrow-left.svg" alt="arrow-left" class="lg:mt-[2px] lg:mr-5 lg:mb-0 mb-5" />
+            <div class="block lg:flex cursor-pointer" onclick="window.location.href='index.html', '_blank'">
+              <img src="../public/icon/arrow-left.svg" alt="arrow-left" class="lg:mt-[5px] lg:mr-5 lg:mb-0 mb-5" />
               <h1 class="text-2xl sm:text-3xl lg:text-5xl text-slate-900 font-bold">
                 Kembali ke Pusat Forum
                 <span class="text-blue-700">Discussion</span>
@@ -102,8 +102,8 @@
           </div>
 
           <!-- FORM -->
-          <div x-show="open" x-transition.duration.1000ms class="mx-auto my-20">
-            <form @submit.prevent="..." action="#" method="post" enctype="multipart/form-data">
+          <div x-show="open" x-transition.duration.1000ms @click.outside="open = false" class="mx-auto my-20">
+            <form @click.outside.stop="open = false" @submit.prevent="submitForm" action="#" method="post" enctype="multipart/form-data">
               <div class="w-full mx-auto max-w-md lg:max-w-3xl">
                 <label class="block">
                   <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-xl font-medium text-slate-700"> Berikan Komentar Anda </span>
@@ -123,18 +123,17 @@
                   <input
                     type="file"
                     name="image"
-                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" />
+                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 cursor-pointer hover:file:bg-violet-100" />
                 </label>
               </div>
 
               <div class="w-full mx-auto max-w-md lg:max-w-3xl my-10">
                 <button type="submit" class="bg-blue-800 px-4 text-white py-2">Submit</button>
 
-                <button @click="open = false" class="bg-slate-600 px-4 py-2 text-white text-dark">Cancel</button>
+                <button @click.stop="open = false" class="bg-slate-600 px-4 py-2 text-white text-dark">Cancel</button>
               </div>
             </form>
           </div>
-
           <!-- FORM END -->
 
           <!-- comment -->
